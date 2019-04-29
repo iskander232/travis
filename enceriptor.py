@@ -116,35 +116,3 @@ def hack(args):
             local_min = dist
             res = i
     write(args.output_file, encode_from_caesar('encode', s1, string.ascii_lowercase.find(res)))
-
-
-parser = argparse.ArgumentParser()
-subparsers = parser.add_subparsers()
-
-# create parser_encode
-parser_encode = subparsers.add_parser('encode')
-parser_encode.add_argument('--cipher', type=str, required=True)
-parser_encode.add_argument('--key', type=str, required=True)
-parser_encode.add_argument('--input-file', default='sys.stdin')
-parser_encode.add_argument('--output-file', default='sys.stdout')
-parser_encode.set_defaults(func=encode)
-# create parser decode
-parser_decode = subparsers.add_parser('decode')
-parser_decode.add_argument('--cipher', type=str, required=True)
-parser_decode.add_argument('--key', type=str, required=True)
-parser_decode.add_argument('--input-file', type=str, default='sys.stdin')
-parser_decode.add_argument('--output-file', default='sys.stdout')
-parser_decode.set_defaults(func=decode)
-# create parser train
-parser_train = subparsers.add_parser('train')
-parser_train.add_argument('--text-file', dest='input_file', default='sys.stdin')
-parser_train.add_argument('--model-file', required=True)
-parser_train.set_defaults(func=train)
-# create parser hack
-parser_hack = subparsers.add_parser('hack')
-parser_hack.add_argument('--input-file', default='sys.stdin')
-parser_hack.add_argument('--output-file', default='sys.stdout')
-parser_hack.add_argument('--model-file', required=True)
-parser_hack.set_defaults(func=hack)
-args = parser.parse_args()
-args.func(args)
