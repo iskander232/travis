@@ -1,8 +1,2 @@
 language: python
 cache: cargo
-
-deploy:
-  provider: script
-  script: pytest
-  on:
-    branch: master
