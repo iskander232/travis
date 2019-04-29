@@ -1,5 +1,6 @@
 dist: xenial   # required for Python >= 3.7
 language: python
+install: pip install --user -r requirements.txt
 python:
   - "3.7"
   - "3.7-dev"  # 3.7 development branch
