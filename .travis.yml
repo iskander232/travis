@@ -5,7 +5,7 @@ pip:
   - "18.1"
 install:
   - pip install -r requirements.txt
-script: pytest
+script: pytest -v
 notifications:
   email:
     recipients:
