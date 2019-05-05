@@ -8,5 +8,6 @@ install:
 script: pytest -v
 notifications:
   email:
-    on_success: always # default: change
-    on_failure: always # default: always
+   - task4texprog@gmail.com 
+        on_success: always # default: change
+        on_failure: always # default: always
