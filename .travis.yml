@@ -10,5 +10,5 @@ notifications:
   email:
     recipients:
     - task4texprog@gmail.com 
-    on_success: always # default: change
-    on_failure: always # default: always
+    on_success: always
+    on_failure: always
