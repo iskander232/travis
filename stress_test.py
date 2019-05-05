@@ -1,29 +1,18 @@
-from pytest import *
+from  pytest import *
 from enceriptor import *
 from for_test import *
-from random import *
-
 
 def test_caesar():
-    for i in range(1000):
-        s = ''
-        for j in range(100):
-            s += choice(alf)
-        l = randint(0, 26)
-        x = give_caesar('encode', s, l)
-        y = give_caesar('decode', x, l)
-        assert y == s
+   args = C('text1', 'out1', 17)
+   caesar('encode', args)
+   assert read('text1') == give_caesar('decode', read('out1'), 17)
 
 
-def test_vigenere():
-    for i in range(1000):
-        s = ''
-        s1 = randint(1, 100)
-        for j in range(s1):
-            s += choice(alf)
-        l = ''
-        for j in range(s1):
-            l += choice(string.ascii_lowercase)
-        x = give_vigenere('encode', s, l)
-        y = give_vigenere('decode', x, l)
-        assert y == s
+def test_viginere():
+    args = C('text1', 'out2_1', 'text2')
+    vigenere('encode', args)
+    args.input_file = 'out2_1'
+    args.output_file = 'out2_2'
+    vigenere('decode', args)
+    assert read('out2_2') == read('text1')
+
