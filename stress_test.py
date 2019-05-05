@@ -3,16 +3,16 @@ from enceriptor import *
 from for_test import *
 
 def test_caesar():
-   args = C('text1', 'out1', 17)
+   args = C('files/text1', 'files/out1', 17)
    caesar('encode', args)
-   assert read('text1') == give_caesar('decode', read('out1'), 17)
+   assert read('files/text1') == give_caesar('decode', read('files/out1'), 17)
 
 
 def test_viginere():
-    args = C('text1', 'out2_1', 'text2')
+    args = C('files/text1', 'files/out2_1', 'files/text2')
     vigenere('encode', args)
-    args.input_file = 'out2_1'
-    args.output_file = 'out2_2'
+    args.input_file = 'files/out2_1'
+    args.output_file = 'files/out2_2'
     vigenere('decode', args)
-    assert read('out2_2') == read('text1')
+    assert read('files/out2_2') == read('files/text1')
 
